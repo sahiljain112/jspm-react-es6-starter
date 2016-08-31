@@ -1,12 +1,16 @@
 {
   "name": "jspm-react-es6-starter",
   "version": "1.0.0",
-  "description": "A starter kit for jspm with react in ES6",
+  "description": "A starter kit for react with JSPM in ES6",
   "main": "app/main.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "./node_modules/.bin/mocha --compilers js:babel-register tests/*.test.js",
     "lint": "./node_modules/.bin/eslint ./app --ext .js --ignore-pattern internals/scripts || true",
-    "build": "jspm bundle app/main --inject"
+    "build": "jspm bundle app/main --inject --minify"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:sahiljain112/jspm-react-es6-starter.git"
   },
   "keywords": [
     "es6",
@@ -18,9 +22,17 @@
   "author": "sahiljain112@gmail.com",
   "license": "ISC",
   "devDependencies": {
+    "babel": "^6.5.2",
+    "babel-plugin-transform-react-jsx": "^6.8.0",
+    "babel-preset-es2015": "^6.14.0",
+    "babel-register": "^6.14.0",
+    "chai": "^3.5.0",
     "eslint": "^3.4.0",
     "eslint-plugin-react": "^6.2.0",
-    "jspm": "^0.16.45"
+    "glob": "^7.0.6",
+    "jspm": "^0.16.45",
+    "mocha": "^3.0.2",
+    "systemjs": "^0.19.37"
   },
   "jspm": {
     "dependencies": {
@@ -30,14 +42,9 @@
       "react-dom": "npm:react-dom@^15.3.1"
     },
     "devDependencies": {
-      "babel": "npm:babel-core@^5.8.24",
+      "babel-register": "npm:babel-register@^6.14.0",
       "babel-runtime": "npm:babel-runtime@^5.8.24",
       "core-js": "npm:core-js@^1.1.4"
     }
-  },
-  "dependencies": {
-    "react": "^15.3.1",
-    "react-bootstrap": "^0.30.3",
-    "react-dom": "^15.3.1"
   }
 }
